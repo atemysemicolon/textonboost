@@ -97,7 +97,7 @@ int main( int argc, char * argv[]){
 	
 	/**** Training ****/
 	qDebug("(train) Loading the database");
-	loadImages( images, labels, names, TRAIN );
+    loadImages( images, labels, names, TRAIN );
 	
 	// Color Conversion
 	qDebug("(train) Converting to Lab");

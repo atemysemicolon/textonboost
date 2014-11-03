@@ -27,7 +27,7 @@
 
 #pragma once
 // TODO: Make sure to adjust the parameters in this file
-#define USE_MSRC
+#define USE_KITTI
 
 // Dataset parameters
 static const char MSRC_DIRECTORY  [] = "/home/local/datasets/MSRC_ObjCategImageDatabase_v2/Images";
@@ -46,6 +46,10 @@ static const char VOC2010_DIRECTORY  [] = "../data/voc/VOC2010/";
 static const char VOC2010_TRAIN_FILE [] = "../data/voc/VOC2010/Train.txt";
 static const char VOC2010_VALID_FILE [] = "../data/voc/VOC2010/Validation.txt";
 static const char VOC2010_TEST_FILE  [] = "../data/voc/VOC2010/Test.txt";
+
+static const char KITTI_DIRECTORY  [] = "/home/prassanna/Development/Datasets/KITTI_SEMANTIC/";
+static const char KITTI_TRAIN_FILE [] = "/home/prassanna/Development/Datasets/KITTI_SEMANTIC/Train.txt";
+static const char KITTI_TEST_FILE  [] = "/home/prassanna/Development/Datasets/KITTI_SEMANTIC/Test.txt";
 
 // VOC Cache
 static const char VOC2010_BBOX_DIRECTORY [] = "data/VOC2010_BBox/";
