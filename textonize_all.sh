@@ -1,4 +1,3 @@
-
 echo -e "Textonizing......."
 TEXTONIZE=/home/prassanna/Development/workspace/builds/textonboost/src/textonize
 $TEXTONIZE data/msrc_filterbank.dat FilterBank 400
