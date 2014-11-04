@@ -145,6 +145,29 @@ static QVector< QString > listKitti( int type )
 
 }
 
+<<<<<<< HEAD
+=======
+/*
+ * QVector< QString > filenames = listVOC2010( type );
+    images.clear();
+    annotations.clear();
+    names.clear();
+    foreach (QString name, filenames ){
+        QString pngname = name;
+        QString gtname = name;
+        pngname+=".png";
+        gtname.replace("/PNGImages/", "/SegmentationClass/");
+        gtname+=".png";
+        ColorImage im;
+        LabelImage gt;
+        im.load( pngname );
+        gt.load( gtname, VOC2010 );
+        images.append( im );
+        annotations.append( gt );
+        names.append( QFileInfo( name ).baseName() );
+    }*/
+
+>>>>>>> 361dcdd481c40a7d823b88eed928b3d8b7d7dd65
 void loadKitti(QVector< ColorImage >& images, QVector< LabelImage >& annotations, QVector< QString > & names, int type) {
 
 QVector< QString > filenames = listKitti( type );
@@ -156,7 +179,19 @@ foreach (QString name, filenames ){
     ColorImage im;
     im.load( name );
     images.append(im);
+<<<<<<< HEAD
     names.append( QFileInfo( name ).baseName() );
+=======
+
+    names.append( QFileInfo( name ).baseName() );
+
+    LabelImage gt;
+    QString gtname = name;
+    gtname.replace("/RGB/", "/GT/");
+    gt.load( gtname, KITTI );
+    annotations.append( gt );
+
+>>>>>>> 361dcdd481c40a7d823b88eed928b3d8b7d7dd65
 }
 }
 

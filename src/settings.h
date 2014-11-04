@@ -78,4 +78,4 @@ static const int MAX_RECT_SIZE      = 200; // Maximum size of texton rectangle
 #define GAUSSIAN_OFFSET // Use Sample the offset from a gaussian centered at 0
 
 // Shall we return the raw boosting results H or P = 1/Z * exp(-H)
-#define RAW_BOOSTING_OUTPUT
+//#define RAW_BOOSTING_OUTPUT

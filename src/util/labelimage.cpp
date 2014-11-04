@@ -58,6 +58,25 @@ static QMap< unsigned int, signed char > init_msrc(){
 	color_to_id[ qRgb(192,64,0) ] = i++;
 	return color_to_id;
 }
+
+static QMap< unsigned int, signed char > init_kitti(){
+    QMap< unsigned int, signed char > color_to_id;
+    color_to_id[ qRgb(0,0,0) ] = -1;
+    color_to_id[ qRgb(128,128,128) ] = 0; //Sky
+    color_to_id[ qRgb(128,0,0) ] = 1; //Building
+    color_to_id[ qRgb(128,64,128) ] = 2; //Road
+    color_to_id[ qRgb(0,0,192) ] = 3; //SideWalk
+    color_to_id[ qRgb(64,64,128) ] = 4; //Fence
+    color_to_id[ qRgb(128,128,0) ] = 5; //Vegetation
+    color_to_id[ qRgb(192,192,128) ] = 6; //Pole
+    color_to_id[ qRgb(64,0,128) ] = 7; // Car
+    color_to_id[ qRgb(192,128,128) ] = 8;//Sign
+    color_to_id[ qRgb(64,64,0) ] = 9; //Pedestrian
+    color_to_id[ qRgb(0,128,192) ] = 10; //Cyclist
+    return color_to_id;
+}
+
+
 static QMap< unsigned int, signed char > init_voc2007(){
 	QMap< unsigned int, signed char > color_to_id;
 	for( int i=0; i<21; i++ )
@@ -81,9 +100,9 @@ static QMap< signed char, unsigned int > init_msrc_colors(){
 	color_to_id[ i++ ] = qRgb(128,0,0);
 	color_to_id[ i++ ] = qRgb(0,128,0);
 	color_to_id[ i++ ] = qRgb(128,128,0);
-	color_to_id[ i++ ] = qRgb(0,0,128);
-	color_to_id[ i++ ] = qRgb(0,128,128);
-	color_to_id[ i++ ] = qRgb(128,128,128);
+    color_to_id[ i++ ] = qRgb(0,0,128);
+    color_to_id[ i++ ] = qRgb(0,128,128);
+    color_to_id[ i++ ] = qRgb(128,128,128);
 	color_to_id[ i++ ] = qRgb(192,0,0);
 	color_to_id[ i++ ] = qRgb(64,128,0);
 	color_to_id[ i++ ] = qRgb(192,128,0);
@@ -101,6 +120,25 @@ static QMap< signed char, unsigned int > init_msrc_colors(){
 	color_to_id[ i++ ] = qRgb(192,64,0);
 	return color_to_id;
 }
+
+static QMap< signed char, unsigned int > init_kitti_colors(){
+    QMap< signed char, unsigned int > color_to_id;
+    color_to_id[ -1 ] = qRgb(0,0,0);
+    color_to_id[ 0 ] = qRgb(128,128,128); //Sky
+    color_to_id[ 1 ] = qRgb(128,0,0); //Building
+    color_to_id[ 2 ] = qRgb(128,64,128); //road
+    color_to_id[ 3 ] = qRgb(0,0, 192); //sidewalk
+    color_to_id[ 4 ] = qRgb(64,64,128); //Fence
+    color_to_id[ 5 ] = qRgb(128,128,0); //Vegetation
+    color_to_id[ 6 ] = qRgb(192,192,128); //Pole
+    color_to_id[ 7 ] = qRgb(64,0,128); //Car
+    color_to_id[ 8 ] = qRgb(192,128,128); //Sign
+    color_to_id[ 9 ] = qRgb(64,64,0); //Pedestrian
+    color_to_id[ 10 ] = qRgb(0,128,192); //Cyclist
+    return color_to_id;
+}
+
+
 static QMap< signed char, unsigned int > init_voc2007_colors(){
 	// TODO: Complete
 	return init_msrc_colors();
@@ -117,6 +155,8 @@ static QMap< unsigned int, signed char > VOC2010_MAP = init_voc2010();
 static QMap< signed char, unsigned int > MSRC_COLORS = init_msrc_colors();
 static QMap< signed char, unsigned int > VOC2007_COLORS = init_voc2007_colors();
 static QMap< signed char, unsigned int > VOC2010_COLORS = init_voc2010_colors();
+static QMap< unsigned int, signed char > KITTI_MAP = init_kitti();
+static QMap< signed char, unsigned int > KITTI_COLORS = init_kitti_colors();
 
 void LabelImage::init(const QImage& qim, LabelType type) {
 	if( type == MSRC )
@@ -125,7 +165,9 @@ void LabelImage::init(const QImage& qim, LabelType type) {
 		init( qim, VOC2007_MAP );
 	else if( type == VOC2010 )
 		init( qim, VOC2010_MAP );
-	else
+    else if(type == KITTI)
+        init( qim, KITTI_MAP );
+    else
 		qWarning( "Unsupported Label type" );
 
 }
@@ -206,7 +248,9 @@ ColorImage LabelImage::colorize(LabelType t) {
 			r[i] = MSRC_COLORS[ operator[](i) ];
 		else if (t==VOC2007)
 			r[i] = VOC2007_COLORS[ operator[](i) ];
-		else
+        else if (t==VOC2010)
 			r[i] = VOC2010_COLORS[ operator[](i) ];
+        else
+            r[i] = KITTI_COLORS[ operator[](i) ];
 	return r;
 }

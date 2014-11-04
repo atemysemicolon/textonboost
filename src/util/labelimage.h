@@ -32,6 +32,7 @@ enum LabelType{
 	MSRC=0,
 	VOC2007,
 	VOC2010,
+    KITTI,
 };
 
 template<class Key, class T >

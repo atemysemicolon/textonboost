@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< HEAD
 <!-- Written by QtCreator 3.0.1, 2014-11-03T18:06:56. -->
+=======
+<!-- Written by QtCreator 3.0.1, 2014-11-04T15:22:55. -->
+>>>>>>> 361dcdd481c40a7d823b88eed928b3d8b7d7dd65
 <qtcreator>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
@@ -56,7 +60,11 @@
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{3d44ff22-e678-43a8-89be-95bf2346762a}</value>
    <value type="int" key="ProjectExplorer.Target.ActiveBuildConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
+<<<<<<< HEAD
    <value type="int" key="ProjectExplorer.Target.ActiveRunConfiguration">2</value>
+=======
+   <value type="int" key="ProjectExplorer.Target.ActiveRunConfiguration">1</value>
+>>>>>>> 361dcdd481c40a7d823b88eed928b3d8b7d7dd65
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
     <value type="bool" key="CMakeProjectManager.CMakeBuildConfiguration.UseNinja">false</value>
     <value type="QString" key="CMakeProjectManager.CMakeBuildConfiguration.UserArguments">-DCMAKE_BUILD_TYPE=Debug</value>
@@ -202,17 +210,29 @@
      <value type="int">14</value>
     </valuelist>
     <value type="QString" key="CMakeProjectManager.CMakeRunConfiguation.Title">textonboost</value>
+<<<<<<< HEAD
     <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.Arguments"></value>
     <value type="bool" key="CMakeProjectManager.CMakeRunConfiguration.UseTerminal">false</value>
     <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.UserWorkingDirectory"></value>
     <value type="int" key="PE.EnvironmentAspect.Base">-1</value>
+=======
+    <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.Arguments">data/msrc.dat data/msrc_color.dat data/msrc_filterbank.dat data/msrc_hog_l.dat data/msrc_location.dat</value>
+    <value type="bool" key="CMakeProjectManager.CMakeRunConfiguration.UseTerminal">false</value>
+    <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.UserWorkingDirectory">/home/prassanna/Development/workspace/textonboost</value>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+>>>>>>> 361dcdd481c40a7d823b88eed928b3d8b7d7dd65
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">textonboost</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.textonboost</value>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>
+<<<<<<< HEAD
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+=======
+    <value type="bool" key="RunConfiguration.UseCppDebugger">true</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">false</value>
+>>>>>>> 361dcdd481c40a7d823b88eed928b3d8b7d7dd65
     <value type="bool" key="RunConfiguration.UseMultiProcess">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -253,7 +273,11 @@
      <value type="int">14</value>
     </valuelist>
     <value type="QString" key="CMakeProjectManager.CMakeRunConfiguation.Title">textonize</value>
+<<<<<<< HEAD
     <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.Arguments">data/msrc_filterbank.dat FilterBank 400</value>
+=======
+    <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.Arguments"></value>
+>>>>>>> 361dcdd481c40a7d823b88eed928b3d8b7d7dd65
     <value type="bool" key="CMakeProjectManager.CMakeRunConfiguration.UseTerminal">false</value>
     <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.UserWorkingDirectory"></value>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
