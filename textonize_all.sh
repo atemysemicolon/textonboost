@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-=======
+
 echo -e "Textonizing......."
->>>>>>> 361dcdd481c40a7d823b88eed928b3d8b7d7dd65
 TEXTONIZE=/home/prassanna/Development/workspace/builds/textonboost/src/textonize
 $TEXTONIZE data/msrc_filterbank.dat FilterBank 400
 $TEXTONIZE data/msrc_color.dat Color 128
