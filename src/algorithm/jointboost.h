@@ -207,7 +207,7 @@ protected:
 	
 public:
 template<typename D>
-	void train( const QVector<D> & data, const QVector< signed char > & gt, int n_classes, int n_rounds, int n_classifiers, int n_thresholds ){
+    void train( const QVector<D> & data, const QVector< signed char > & gt, int n_classes, int n_rounds, int n_classifiers, int n_thresholds ){
 		a_.clear();
 		b_.clear();
 		sharing_set_.clear();

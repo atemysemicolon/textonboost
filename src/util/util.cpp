@@ -33,6 +33,8 @@
 #include <QString>
 #include <QFileInfo>
 
+#include <iostream>
+
 static QVector< QString > listMSRC( int type ){
 	QString base_dir = MSRC_DIRECTORY;
 	QVector< QString > names;
@@ -118,10 +120,94 @@ void loadVOC2010(QVector< ColorImage >& images, QVector< LabelImage >& annotatio
 	}
 }
 
+
+static QVector< QString > listKitti( int type )
+{
+    QString base_dir = KITTI_DIRECTORY;
+    QVector< QString > names;
+    int types[] = {TRAIN, TEST};
+    const char * files[] = {KITTI_TRAIN_FILE, KITTI_TEST_FILE};
+    for( int i=0; i<2; i++ )
+        if (type & types[i]){
+            QFile f( files[i] );
+            if (!f.open(QFile::ReadOnly))
+                qFatal( "Failed to open file '%s'!", files[i] );
+            while(!f.atEnd()){
+                QByteArray name = f.readLine().trimmed();
+                if (name.length() > 0){
+                    QString filename = name;
+                    //std::cout<<filename.toUtf8().constData()<<std::endl;
+                    names.append( filename );
+                }
+            }
+        }
+    return names;
+
+}
+
+/*
+ * QVector< QString > filenames = listVOC2010( type );
+    images.clear();
+    annotations.clear();
+    names.clear();
+    foreach (QString name, filenames ){
+        QString pngname = name;
+        QString gtname = name;
+        pngname+=".png";
+        gtname.replace("/PNGImages/", "/SegmentationClass/");
+        gtname+=".png";
+        ColorImage im;
+        LabelImage gt;
+        im.load( pngname );
+        gt.load( gtname, VOC2010 );
+        images.append( im );
+        annotations.append( gt );
+        names.append( QFileInfo( name ).baseName() );
+    }*/
+
+void loadKitti(QVector< ColorImage >& images, QVector< LabelImage >& annotations, QVector< QString > & names, int type) {
+
+QVector< QString > filenames = listKitti( type );
+images.clear();
+annotations.clear();
+names.clear();
+foreach (QString name, filenames ){
+
+    ColorImage im;
+    im.load( name );
+    images.append(im);
+
+    names.append( QFileInfo( name ).baseName() );
+
+    LabelImage gt;
+    QString gtname = name;
+    gtname.replace("/RGB/", "/GT/");
+    gt.load( gtname, KITTI );
+    annotations.append( gt );
+
+}
+}
+
+
+static QVector< QString > listCamvid( int type )
+{
+
+}
+
+void loadCamvid(QVector< ColorImage >& images, QVector< LabelImage >& annotations, QVector< QString > & names, int type) {
+
+QVector< QString > filenames = listCamvid( type );
+}
+
+
 void loadImages(QVector< ColorImage >& images, QVector< LabelImage >& annotations, QVector< QString > & names, int type) {
 #ifdef USE_MSRC
 	loadMSRC(images, annotations, names, type);
-#else
+#endif
+#ifdef USE_VOC
 	loadVOC2010(images, annotations, names, type);    
+#endif
+#ifdef USE_KITTI
+    loadKitti(images, annotations, names, type);
 #endif
 }
