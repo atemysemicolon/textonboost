@@ -59,7 +59,7 @@ static const int N_TEXTONS = 400;
 static const float FILTER_BANK_SIZE = 1.0;
 
 // Boosting parameters
-static const int N_BOOSTING_ROUNDS  = 10000; // Number of boosting rounds
+static const int N_BOOSTING_ROUNDS  = 200;//10000 // Number of boosting rounds
 static const int N_CLASSIFIERS      = 200; // Number of random classifiers to test [per round]
 static const int N_THRESHOLDS       = 100; // Number of thresholds to test [per round]
 // static const int N_BOOSTING_ROUNDS  = 10000; // Number of boosting rounds

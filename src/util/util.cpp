@@ -169,28 +169,24 @@ static QVector< QString > listKitti( int type )
 
 void loadKitti(QVector< ColorImage >& images, QVector< LabelImage >& annotations, QVector< QString > & names, int type) {
 
-QVector< QString > filenames = listKitti( type );
-images.clear();
-annotations.clear();
-names.clear();
-foreach (QString name, filenames ){
+    QVector< QString > filenames = listKitti( type );
+    images.clear();
+    annotations.clear();
+    names.clear();
+    foreach (QString name, filenames )
+    {
 
-    ColorImage im;
-    im.load( name );
-    images.append(im);
+        ColorImage im; LabelImage gt;
+        QString gtname = name;
 
-    names.append( QFileInfo( name ).baseName() );
+        im.load( name );
+        gtname.replace("/RGB/", "/GT/");
+        gt.load( gtname, KITTI );
 
-
-    names.append( QFileInfo( name ).baseName() );
-
-    LabelImage gt;
-    QString gtname = name;
-    gtname.replace("/RGB/", "/GT/");
-    gt.load( gtname, KITTI );
-    annotations.append( gt );
-
-}
+        images.append(im);
+        names.append( QFileInfo( name ).baseName() );
+        annotations.append( gt );
+    }
 }
 
 
